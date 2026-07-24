@@ -1,6 +1,6 @@
 # 🚖 CLIXAT - Sistema de Cadastro e Gestão de Clientes de Táxi
 
-![CLIXAT Banner](https://raw.githubusercontent.com/seu-usuario/seu-repositorio/main/foto1.png)
+![CLIXAT Banner](https://raw.githubusercontent.com/Mattheus-gs/CLIXAT/main/foto1.png)
 
 O **CLIXAT** é uma plataforma web desenvolvida para taxistas que buscam modernizar e agilizar a gestão de sua carteira de clientes. O sistema permite cadastrar passageiros frequentes, registrar detalhes sobre as corridas rotineiras e, com apenas um clique, gerar um **auto-texto formatado** com a lista de clientes pronto para ser copiado e compartilhado (via WhatsApp, SMS ou blocos de notas).
 
