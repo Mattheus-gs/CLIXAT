@@ -143,7 +143,7 @@ function carregar(){
          carregar1 = listaclients[i].valor.toFixed(2).replace(".",",")
         
         
-         resultado = `<div class="card-dino">
+         resultado += `<div class="card-dino">
                 <hr>
                 <h2>Nome: ${listaclients[i].nome}</h2>
                 <p>Ponto inicial da corrida: ${listaclients[i].pontoInicial} m</p>
@@ -159,13 +159,14 @@ function carregar(){
 }
 
 
+function enviarzap(){
+    let copia
 
-function copiar(){
     if (listaclients.length === 0) {
         alert("Não existe clientes cadastrados.");
         return;
     }
-    let copia
+    copia = ''
     listaclients.forEach((listaclients,indice) => {
         copia += ` ${indice+1}° cliente
         Nome: ${listaclients.nome}
@@ -179,24 +180,9 @@ function copiar(){
         .then(() => alert("Todos os cadastros foram copiados!"))
         .catch(err => console.error(err));
 
+    let url = `https://wa.me/?text=${encodeURIComponent(copia)}`;
+
+    window.open(url, "_blank");
 }
-
-
-
-
-
-
-// //undefined 1° cliente
-//         Nome: teu pai
-//         Ponto Inicial: casa do kralho
-//         Distância: 5757
-//         Valor: R$ 70.00
-//         Dia: terça
-//          2° cliente
-//         Nome: mais 1 pra cadastrar
-//         Ponto Inicial: K ralho
-//         Distância: muito linge
-//         Valor: R$ 0.00
-//         Dia: amanha
         
 

@@ -36,7 +36,10 @@
 
 }
 p{
-    color: var(--warning);
+    color:rgb(14, 10, 77);
+    text-shadow: 0px 0px 5px #ffaf02 ;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 #cadastrar{
     width: 500px;
@@ -79,10 +82,10 @@ button{
 
 input{
     border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border-radius: 5px;
     padding: 10px;
-    background: var(--surface);
-    color: var(--text);
+    background-color: #5a51519c;
+    color: white;
 }
 
 #resultado{
