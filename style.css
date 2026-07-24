@@ -31,13 +31,32 @@
     --radius: 8px;
     --transition: 0.3s ease;
 }
+#id{
+    display: none;
 
+}
+p{
+    color: var(--warning);
+}
+#cadastrar{
+    width: 500px;
+    margin-top: 100px;
+    margin-left: 550px;
+background: rgba(255, 255, 255, 0.25);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3.2px);
+-webkit-backdrop-filter: blur(3.2px);
+border: 1px solid rgba(255, 255, 255, 1);
+}
 /* =========================================
    ESTILO GERAL
 ========================================= */
 
 body {
-    background: var(--background);
+    background-image: url("foto1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     color: var(--text);
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;

@@ -8,7 +8,6 @@
   
 </head>
 <body>
-    <H1>CLIXAT</H1>
     <div id="cadastrar">
     <p>Nome</p>
     <input id="1" type="text"> <br>
@@ -18,12 +17,18 @@
     <input id="3" type="text"> <br>
     <p>Valor</p>
     <input id="4" type="number"> <br>
-    <p>Id</p>
+    <p>Dia da semana</p>
+    <input id="6" type="text"> <br>
+    <div id="id">
     <input id="5" type="number"> <br><br>
+    </div>
     <button id="envia" onclick="enviar()">cadastrar</button>
-    <button onclick="apagar()">apagar (insira o nome do cliente)</button>
+    <button onclick="pesq()">pesquisar cliente (insira o nome do cliente)</button>
+    <button onclick="apagar()">apagar cliente</button>
+
     <button  onclick="altcliente()">alterar cliente</button>
-    <button  onclick="carregar()">carregar clientes</button>
+    <button  onclick="carregar()">Mostrar clientes</button>
+    <button  onclick="copiar()">Copiar clientes</button>
     
     
     <div id="resultado"></div>

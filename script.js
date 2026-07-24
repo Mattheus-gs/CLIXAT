@@ -12,22 +12,26 @@ function enviar(){
         pontoInicial: document.getElementById("2").value,
         distancia:document.getElementById("3").value,
         valor: Number(document.getElementById("4").value),
+        dsemana: document.getElementById("6").value,
         id: Date.now(),
 }
     
     listaclients.push(clientebase)
 
-   let sla 
+   let valorcadastro
+   
 for(let i = 0; i < listaclients.length;i++){
-    sla = listaclients[i].valor.toFixed(2).replace(".",",")
+    let nomecadastro = listaclients[i].nome
+        nomecadastro = nomecadastro.toLowerCase()
+    valorcadastro = listaclients[i].valor.toFixed(2).replace(".",",")
     
         resultado = `<div class="card-cliente">
                 <hr>
-                <h2>Nome: ${listaclients[i].nome}</h2>
+                <h2>Nome: ${nomecadastro}</h2>
                 <p>Ponto de partida: ${listaclients[i].pontoInicial}</p>
                 <p>distancia da corrida: ${listaclients[i].distancia} Km(s)</p>
-                <p>Valor: R$ ${sla} </p>
-                <p>ID: ${listaclients[i].id} </p><br>
+                <p>Valor: R$ ${valorcadastro} </p>
+                <p>Dia(s) da semana: ${listaclients[i].dsemana} </p>
                 </div>
                 `
         }
@@ -36,11 +40,23 @@ for(let i = 0; i < listaclients.length;i++){
     limpaTudo()
     salvando()
 }
+function pesq(){
+    let nomepesq = document.getElementById("1").value
+    for(let i = 0; i< listaclients.length;i++){
+        if(nomepesq == listaclients[i].nome){
+            document.getElementById("2").value = listaclients[i].pontoInicial
+            document.getElementById("3").value = listaclients[i].distancia
+            document.getElementById("4").value = listaclients[i].valor
+            document.getElementById("5").value = listaclients[i].id
+            document.getElementById("6").value = listaclients[i].dsemana
+        }
+    }
+}
 
 function apagar(){
-    let retirar = document.getElementById("1").value
+    let id = document.getElementById("5").value
     for(let i = 0; i < listaclients.length;i++){
-        if(retirar == listaclients[i].nome){
+        if(id == listaclients[i].id){
             listaclients.splice(i,1)     
         }
     } 
@@ -54,14 +70,15 @@ function apagar(){
                 <h2>Nome: ${listaclients[i].nome}</h2>
                 <p>Ponto inicial da corrida: ${listaclients[i].pontoInicial} m</p>
                 <p>distancia da corrida: ${listaclients[i].distancia} </p>
-                <p>Valor: R$ ${sla} </p>
-                <p>ID: ${listaclients[i].id} </p><br>
+                <p>Valor: R$ ${apagar} </p>
+                <p>Dia(s) da semana: ${listaclients[i].dsemana} </p>
                 </div>
                 `
     }
 
 document.getElementById("resultado").innerHTML = resultado 
 limpaTudo()
+salvando()
 }
 
 
@@ -71,6 +88,7 @@ function limpaTudo(){
    document.getElementById("3").value = ""
    document.getElementById("4").value =  ""
    document.getElementById("5").value =  ""
+   document.getElementById("6").value =  ""
 }
 
 function altdcliente(){
@@ -78,12 +96,14 @@ function altdcliente(){
     let alt2 = document.getElementById("2").value 
    let alt3 = document.getElementById("3").value 
    let alt4 = Number(document.getElementById("4").value)
+   let alt5 = Number(document.getElementById("6").value)
    let alterar2
     for(let i = 0; i < listaclients.length;i++){
         if(alterar == listaclients[i].id){
             listaclients[i].pontoInicial = alt2 
             listaclients[i].distancia = alt3   
-            listaclients[i].pontoInicial = alt4       
+            listaclients[i].pontoInicial = alt4
+            listaclients[i].dsemana = alt5       
         }
     } 
     resultado = ""
@@ -96,7 +116,7 @@ function altdcliente(){
                 <p>Ponto inicial da corrida: ${listaclients[i].pontoInicial} m</p>
                 <p>distancia da corrida: ${listaclients[i].distancia} </p>
                 <p>Valor: R$ ${alterar2} </p>
-                <p>ID: ${listaclients[i].id} </p><br>
+                <p>Dia(s) da semana: ${listaclients[i].dsemana} </p>
                 </div>
                 `
     }
@@ -114,18 +134,22 @@ function carregar(){
     let dinossalvos = JSON.parse(leitura)
     listaclients = dinossalvos
     let carregar1
+    if(carregar1 == null){
+            document.getElementById("resultado").innerHTML = "Voce não tem clientes cadastrados no momento."
+        }
 
     resultado = ""
     for(let i = 0; i < listaclients.length;i++){
-         carregar1 = listaclients[i].pontoInicial.toFixed(2).replace(".",",")
-    
+         carregar1 = listaclients[i].valor.toFixed(2).replace(".",",")
+        
+        
          resultado = `<div class="card-dino">
                 <hr>
                 <h2>Nome: ${listaclients[i].nome}</h2>
-                <p>pontoInicial da distancia da corridarida: ${listaclients[i].pontoInicial} m</p>
+                <p>Ponto inicial da corrida: ${listaclients[i].pontoInicial} m</p>
                 <p>distancia da corrida: ${listaclients[i].distancia} </p>
-                <p>Ponto de partida: R$ ${carregar1} </p>
-                <p>ID: ${listaclients[i].id} </p><br>
+                <p>Valor da corrida: R$ ${carregar1} </p>
+                <p>Dia(s) da semana: ${listaclients[i].dsemana} </p>
                 </div>
                 `
     }
@@ -133,4 +157,46 @@ function carregar(){
 
     
 }
+
+
+
+function copiar(){
+    if (listaclients.length === 0) {
+        alert("Não existe clientes cadastrados.");
+        return;
+    }
+    let copia
+    listaclients.forEach((listaclients,indice) => {
+        copia += ` ${indice+1}° cliente
+        Nome: ${listaclients.nome}
+        Ponto Inicial: ${listaclients.pontoInicial}
+        Distância: ${listaclients.distancia}
+        Valor: R$ ${listaclients.valor.toFixed(2)}
+        Dia: ${listaclients.dsemana}
+        `
+    })
+        navigator.clipboard.writeText(copia)
+        .then(() => alert("Todos os cadastros foram copiados!"))
+        .catch(err => console.error(err));
+
+}
+
+
+
+
+
+
+// //undefined 1° cliente
+//         Nome: teu pai
+//         Ponto Inicial: casa do kralho
+//         Distância: 5757
+//         Valor: R$ 70.00
+//         Dia: terça
+//          2° cliente
+//         Nome: mais 1 pra cadastrar
+//         Ponto Inicial: K ralho
+//         Distância: muito linge
+//         Valor: R$ 0.00
+//         Dia: amanha
+        
 
