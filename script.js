@@ -5,10 +5,12 @@ let resultado = ""
 
 
 function enviar(){
+    let nomesimples = document.getElementById("1").value
+    nomesimples = nomesimples.toLowerCase()
     
     let clientebase = {
        
-        nome:document.getElementById("1").value,
+        nome:nomesimples,
         pontoInicial: document.getElementById("2").value,
         distancia:document.getElementById("3").value,
         valor: Number(document.getElementById("4").value),
@@ -42,6 +44,7 @@ for(let i = 0; i < listaclients.length;i++){
 }
 function pesq(){
     let nomepesq = document.getElementById("1").value
+    nomepesq = nomepesq.toLowerCase()
     for(let i = 0; i< listaclients.length;i++){
         if(nomepesq == listaclients[i].nome){
             document.getElementById("2").value = listaclients[i].pontoInicial
