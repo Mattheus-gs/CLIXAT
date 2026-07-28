@@ -162,6 +162,9 @@ function carregar(){
 }
 
 
+//DIFERENCIAL
+
+
 function enviarzap(){
     let copia
 
