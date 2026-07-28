@@ -31,7 +31,6 @@ Para garantir um serviço de táxi eficiente, cada cadastro conta com os seguint
 
 ## 🛠️ Tecnologias Utilizadas
 
-> *[Substitua/Adicione as tecnologias reais que você usou no projeto]*
 
 *   **Front-end:** HTML5, CSS3 (Responsivo) e JavaScript (Vanilla)
 *   **Gerenciamento de Estado/Dados:** LocalStorage (ou o banco de dados que utilizou)

@@ -42,6 +42,9 @@ button{
     cursor: pointer;
     transition: 0.3s;
 }
+#zap{
+    background: rgba(26, 170, 6, 0.7);
+}
 
 
 input{
