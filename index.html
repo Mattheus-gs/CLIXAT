@@ -7,6 +7,7 @@
     <title>CLIXAT</title>
   
 </head>
+
 <body>
     <div id="cadastrar">
     <p>Nome</p>
@@ -17,23 +18,56 @@
     <input id="3" type="number"> <br>
     <p>Valor(R$)</p>
     <input id="4" type="number"> <br>
+
     <p>Dia da semana</p>
-    <input id="6" type="text"> <br>
+    <div id="semana">
+        <div class="container-checkbox">
+            <label id="letras"for="Segunda">S</label>
+            <input id="Segunda" type="checkbox">
+    
+        </div>
+        <div class="container-checkbox">
+            <label id="letras"for="Terca">T</label>
+            <input id="Terca" type="checkbox">
+    
+        </div>
+        <div class="container-checkbox">
+            <label id="letras"for="Quarta">Qa</label>
+            <input id="Quarta" type="checkbox">
+    
+        </div>
+        <div class="container-checkbox">
+            <label id="letras"for="Quinta">Qi</label>
+            <input id="Quinta" type="checkbox">
+    
+        </div>
+        <div class="container-checkbox">
+            <label id="letras"for="Sexta">Se</label>
+            <input id="Sexta" type="checkbox">
+    
+        </div>
+    </div>
     <div id="id">
     <input id="5" type="number"> <br><br>
     </div>
+    <hr>
+    
+    <!-- Botões -->
+
     <button id="envia" onclick="enviar()">Cadastrar</button>
     <button onclick="pesq()">Pesquisar cliente pelo Nome</button>
     <button onclick="apagar()">Apagar cliente (pesquise antes)</button>
-
     <button  onclick="altcliente()">Alterar cliente</button>
     <button  onclick="carregar()">Mostrar clientes</button>
+    <button  onclick="ordenar()">ordenar clientes</button>
+    <button  onclick="teste()">teste clientes</button>
 
     <!-- DIFERENCIAL -->
-    <button  id="zap"onclick="enviarzap()">📞ZAPZAP</button>
     
-    <div id="resultado"></div>
+    <button  id="zap"onclick="enviarzap()">📞ZAPZAP</button>
     </div>
+    <div id="resultado"></div>
+    
     
 
 

@@ -3,14 +3,17 @@
 
 }
 p{
-    color:rgb(14, 10, 77);
-    text-shadow: 0px 0px 5px #ffaf02 ;
+    color:rgb(69, 58, 167);
     font-size: 20px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold
+}
+h2{
+    color: rgba(255, 187, 0, 0.7);;
 }
 #cadastrar{
     width: 500px;
-    margin-top: 100px;
+    margin-top: 75px;
     margin-left: 550px;
     background: rgba(255, 255, 255, 0.25);
     border-radius: 16px;
@@ -46,7 +49,6 @@ button{
     background: rgba(26, 170, 6, 0.7);
 }
 
-
 input{
     border: 1px solid gray;
     border-radius: 5px;
@@ -56,12 +58,35 @@ input{
 }
 
 #resultado{
-  display: flex;
-  
+     display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin: 30px auto;
+    width: 90%;
 }
 .card-cliente{
-    margin-left: 10px;
+    width: 220px;
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 10px;
    
+}
+.container-checkbox{
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+}
+#semana{
+    display: flex;
+    justify-content: center;
+}
+
+#letras{
+    color:rgb(69, 58, 167);
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold
 }
 
 

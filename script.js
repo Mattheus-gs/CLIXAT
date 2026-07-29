@@ -3,10 +3,72 @@
 let listaclients = []
 let resultado = ""
 
+ function teste(){
+    listaclients = listaclients = [
+  {
+    nome: "João Silva",
+    pontoInicial: "Centro",
+    distancia: 8,
+    valor: 32.00,
+    dsemana: "Segunda, Quarta e Sexta"
+  },
+  {
+    nome: "Maria Oliveira",
+    pontoInicial: "Bairro América",
+    distancia: 15,
+    valor: 55.50,
+    dsemana: "Terça e Quinta"
+  },
+  {
+    nome: "Carlos Souza",
+    pontoInicial: "Anita Garibaldi",
+    distancia: 22,
+    valor: 78.00,
+    dsemana: "Segunda a Sexta"
+  },
+  {
+    nome: "Fernanda Costa",
+    pontoInicial: "Iririú",
+    distancia: 5,
+    valor: 22.00,
+    dsemana: "Sábado"
+  },
+  {
+    nome: "Lucas Pereira",
+    pontoInicial: "Boa Vista",
+    distancia: 12,
+    valor: 45.00,
+    dsemana: "Domingo"
+  }
+]
+limpaTudo()
+    salvando()
+ }
 
 function enviar(){
     let nomesimples = document.getElementById("1").value
     nomesimples = nomesimples.toLowerCase()
+     let dias = [];
+
+    if(document.getElementById("Segunda").checked){
+        dias.push("Segunda");
+    }
+
+    if(document.getElementById("Terca").checked){
+        dias.push("Terça");
+    }
+
+    if(document.getElementById("Quarta").checked){
+        dias.push("Quarta");
+    }
+
+    if(document.getElementById("Quinta").checked){
+        dias.push("Quinta");
+    }
+
+    if(document.getElementById("Sexta").checked){
+        dias.push("Sexta");
+    }
     
     let clientebase = {
        
@@ -14,7 +76,7 @@ function enviar(){
         pontoInicial: document.getElementById("2").value,
         distancia:document.getElementById("3").value,
         valor: Number(document.getElementById("4").value),
-        dsemana: document.getElementById("6").value,
+        dsemana: dias.join(", "),
         id: Date.now(),
 }
     
@@ -39,8 +101,8 @@ for(let i = 0; i < listaclients.length;i++){
         }
     
     document.getElementById("resultado").innerHTML += resultado
-    limpaTudo()
-    salvando()
+        limpaTudo()
+        salvando()
 }
 function pesq(){
     let nomepesq = document.getElementById("1").value
@@ -51,7 +113,6 @@ function pesq(){
             document.getElementById("3").value = listaclients[i].distancia
             document.getElementById("4").value = listaclients[i].valor
             document.getElementById("5").value = listaclients[i].id
-            document.getElementById("6").value = listaclients[i].dsemana
         }
     }
 }
@@ -91,33 +152,54 @@ function limpaTudo(){
    document.getElementById("3").value = ""
    document.getElementById("4").value =  ""
    document.getElementById("5").value =  ""
-   document.getElementById("6").value =  ""
 }
 
-function altdcliente(){
+function altcliente(){
     let alterar = document.getElementById("5").value
     let alt2 = document.getElementById("2").value 
    let alt3 = document.getElementById("3").value 
    let alt4 = Number(document.getElementById("4").value)
-   let alt5 = Number(document.getElementById("6").value)
+  let dias = [];
+
+    if(document.getElementById("Segunda").checked){
+        dias.push("Segunda");
+    }
+
+    if(document.getElementById("Terca").checked){
+        dias.push("Terça");
+    }
+
+    if(document.getElementById("Quarta").checked){
+        dias.push("Quarta");
+    }
+
+    if(document.getElementById("Quinta").checked){
+        dias.push("Quinta");
+    }
+
+    if(document.getElementById("Sexta").checked){
+        dias.push("Sexta");
+    }
    let alterar2
     for(let i = 0; i < listaclients.length;i++){
         if(alterar == listaclients[i].id){
             listaclients[i].pontoInicial = alt2 
             listaclients[i].distancia = alt3   
             listaclients[i].pontoInicial = alt4
-            listaclients[i].dsemana = alt5       
+            listaclients[i].dsemana = dias.join(", ")      
         }
     } 
     resultado = ""
     for(let i = 0; i < listaclients.length;i++){
+        let nomecadastro = listaclients[i].nome
+        nomecadastro = nomecadastro.toLowerCase()
          alterar2 = listaclients[i].pontoInicial.toFixed(2).replace(".",",")
     
-         resultado = `<div class="card-dino">
+         resultado = `<div class="card-cliente">
                 <hr>
-                <h2>Nome: ${listaclients[i].nome}</h2>
-                <p>Ponto inicial da corrida: ${listaclients[i].pontoInicial} m</p>
-                <p>distancia da corrida: ${listaclients[i].distancia} </p>
+                <h2>Nome: ${nomecadastro}</h2>
+                <p>Ponto de partida: ${listaclients[i].pontoInicial}</p>
+                <p>distancia da corrida: ${listaclients[i].distancia} Km(s)</p>
                 <p>Valor: R$ ${alterar2} </p>
                 <p>Dia(s) da semana: ${listaclients[i].dsemana} </p>
                 </div>
@@ -125,7 +207,6 @@ function altdcliente(){
     }
     document.getElementById("resultado").innerHTML = resultado 
 limpaTudo()
-
 }
 
 function salvando(){
@@ -143,15 +224,17 @@ function carregar(){
 
     resultado = ""
     for(let i = 0; i < listaclients.length;i++){
+         let nomecadastro = listaclients[i].nome
+            nomecadastro = nomecadastro.toLowerCase()
          carregar1 = listaclients[i].valor.toFixed(2).replace(".",",")
+       
         
-        
-         resultado += `<div class="card-dino">
+         resultado += `<div class="card-cliente">
                 <hr>
-                <h2>Nome: ${listaclients[i].nome}</h2>
-                <p>Ponto inicial da corrida: ${listaclients[i].pontoInicial} m</p>
-                <p>distancia da corrida: ${listaclients[i].distancia} </p>
-                <p>Valor da corrida: R$ ${carregar1} </p>
+                <h2>Nome: ${nomecadastro}</h2>
+                <p>Ponto de partida: ${listaclients[i].pontoInicial}</p>
+                <p>distancia da corrida: ${listaclients[i].distancia} Km(s)</p>
+                <p>Valor: R$ ${carregar1} </p>
                 <p>Dia(s) da semana: ${listaclients[i].dsemana} </p>
                 </div>
                 `
@@ -162,7 +245,7 @@ function carregar(){
 }
 
 
-//DIFERENCIAL
+//DIFERENCIAL 
 
 
 function enviarzap(){
@@ -180,15 +263,15 @@ function enviarzap(){
         Distância: ${listaclients.distancia}
         Valor: R$ ${listaclients.valor.toFixed(2)}
         Dia: ${listaclients.dsemana}
+        -----------------------
         `
     })
         navigator.clipboard.writeText(copia)
-        .then(() => alert("Todos os cadastros foram copiados!"))
-        .catch(err => console.error(err));
+                    .then(() => alert("Todos os cadastros foram copiados!"))
+                    .catch(err => console.error(err));
 
     let url = `https://wa.me/?text=${encodeURIComponent(copia)}`;
 
     window.open(url, "_blank");
 }
-        
 
