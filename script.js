@@ -185,15 +185,15 @@ function altcliente(){
         if(alterar == listaclients[i].id){
             listaclients[i].pontoInicial = alt2 
             listaclients[i].distancia = alt3   
-            listaclients[i].pontoInicial = alt4
+            listaclients[i].valor = alt4
             listaclients[i].dsemana = dias.join(", ")      
         }
     } 
-    resultado = ""
+    resultado = ''
     for(let i = 0; i < listaclients.length;i++){
         let nomecadastro = listaclients[i].nome
         nomecadastro = nomecadastro.toLowerCase()
-         alterar2 = listaclients[i].pontoInicial.toFixed(2).replace(".",",")
+         alterar2 = Number(listaclients[i].valor).toFixed(2).replace(".", ",");
     
          resultado = `<div class="card-cliente">
                 <hr>
@@ -207,6 +207,7 @@ function altcliente(){
     }
     document.getElementById("resultado").innerHTML = resultado 
 limpaTudo()
+salvando()
 }
 
 function salvando(){
